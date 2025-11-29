@@ -2,7 +2,7 @@
 
 A useless toggle! Inspired by the useless box.
 
-**Try it out at:** https://irtaza.xyz/Useless-Toggle
+**Try it out at:** https://useless-toggle.vercel.app/
 
 A project for Hack Club [Midnight](https://midnight.hackclub.com/?code=93)
 
