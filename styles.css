@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #120F19;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    color: #e5cab7;
+}
+
+.toggle-area {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    margin: 2rem auto;
+}
+
+.toggle-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.toggle {
+    width: 120px;
+    height: 60px;
+    background: #2c3e50;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-switch {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 50px;
+    height: 50px;
+    background: #ecf0f1;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.toggle.on {
+    background: #27ae60;
+}
+
+.toggle.on .toggle-switch {
+    left: 65px;
+}
+
+.stickman {
+    position: absolute;
+    bottom: 0;
+    left: -100px;
+    width: 60px;
+    height: 100px;
+    transition: all 2s ease-in-out;
+    z-index: 15;
+}
+
+/* Stickman parts */
+.head {
+    width: 30px;
+    height: 30px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 15px;
+}
+
+.body {
+    width: 6px;
+    height: 40px;
+    background: #ff6b6b;
+    position: absolute;
+    top: 30px;
+    left: 27px;
+}
+
+.arm {
+    width: 30px;
+    height: 6px;
+    background: #ff6b6b;
+    position: absolute;
+    top: 40px;
+}
+
+.left-arm {
+    left: -3px;
+    transform-origin: right center;
+}
+
+.right-arm {
+    left: 33px;
+    transform-origin: left center;
+}
+
+.leg {
+    width: 6px;
+    height: 30px;
+    background: #ff6b6b;
+    position: absolute;
+    top: 70px;
+}
+
+.left-leg {
+    left: 21px;
+    transform-origin: top center;
+}
+
+.right-leg {
+    left: 33px;
+    transform-origin: top center;
+}
+
+/* Walking animation */
+.stickman.walking {
+    animation: walk 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes walk {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+.stickman.walking .left-leg {
+    animation: legWalk 0.5s ease-in-out infinite alternate;
+}
+
+.stickman.walking .right-leg {
+    animation: legWalk 0.5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes legWalk {
+    0% {
+        transform: rotate(-15deg);
+    }
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
+.stickman.walking .left-arm {
+    animation: armWalk 0.5s ease-in-out infinite alternate-reverse;
+}
+
+.stickman.walking .right-arm {
+    animation: armWalk 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes armWalk {
+    0% {
+        transform: rotate(-15deg);
+    }
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
+/* Arm reaching animation */
+.stickman.reaching .right-arm {
+    animation: reach 0.5s ease-in-out forwards;
+}
+
+@keyframes reach {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-90deg);
+    }
+}
+
+.counter {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    display: inline-block;
+    color: #bbb8bb;
+}
+
+#counter {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #cad5db;
+}
+
+.color-palette {
+    color:  #120F19, #dcb8b0, #8e878c, #ffffff, #9f94a0, #bbb8bb, #e5cab7, #9bb0cd, #cad5db; 
+}
+
+.footer-text {
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #8e878c;
+}
+
+.footer-text a {
+    color: #dcb8b0;
+}
